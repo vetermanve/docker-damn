@@ -1,4 +1,4 @@
-name: CI
+name: Build and Publish on release published
 
 on:
   release:
@@ -11,8 +11,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, this is test docker build!
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     - name: Publish Docker
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
@@ -22,6 +23,4 @@ jobs:
         username: vetermanve
         # The login password for the registry
         password: ${{secrets.DOCKER_AUTH_TOKEN}}
-        # Use tag_names when you want to push tags/release by their git name
-        tag_names: true
-        tags: "latest"
+        tags: "latest, ${{ steps.get_version.outputs.VERSION }}"
