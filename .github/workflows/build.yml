@@ -19,6 +19,6 @@ jobs:
         # The login username for the registry
         username: vetermanve
         # The login password for the registry
-        password: 278c5856-dbda-447d-8b1a-e73661ce5dd8
+        password: ${{secrets.DOCKER_AUTH_TOKEN}}
         # Use tag_names when you want to push tags/release by their git name
         # tag_names: # optional
