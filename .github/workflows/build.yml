@@ -1,0 +1,24 @@
+name: CI
+
+on: [release]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, this is test docker build!
+    - name: Publish Docker
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        # The name of the image you would like to push
+        name: vetermanve/damn
+        # The login username for the registry
+        username: vetermanve
+        # The login password for the registry
+        password: 278c5856-dbda-447d-8b1a-e73661ce5dd8
+        # Use tag_names when you want to push tags/release by their git name
+        # tag_names: # optional
