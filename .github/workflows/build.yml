@@ -21,4 +21,4 @@ jobs:
         # The login password for the registry
         password: ${{secrets.DOCKER_AUTH_TOKEN}}
         # Use tag_names when you want to push tags/release by their git name
-        # tag_names: # optional
+        tag_names: true
