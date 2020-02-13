@@ -1,6 +1,8 @@
 name: CI
 
-on: [release]
+on:
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -22,3 +24,4 @@ jobs:
         password: ${{secrets.DOCKER_AUTH_TOKEN}}
         # Use tag_names when you want to push tags/release by their git name
         tag_names: true
+        tags: "latest"
