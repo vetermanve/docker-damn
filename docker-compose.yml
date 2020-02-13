@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  damn:
+    build: .
+    container_name: 'damn'
+    network_mode: 'none'
