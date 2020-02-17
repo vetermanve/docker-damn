@@ -3,11 +3,11 @@ Damn simple docker repository with docker hub CD
 
 ## Damn start using only `docker`
 ```
-docker build .
+docker build .  -t damn_docker
 ```
 Example:
 ```log
-$ docker build .
+$ docker build . -t damn_docker
 Sending build context to Docker daemon   68.1kB
 Step 1/4 : FROM debian:10
  ---> a8797652cfd9
@@ -25,13 +25,11 @@ Successfully built 245947a8c768
 ```
 Then run
 ```
-docker run 245947a8c768 
+docker run damn_docker 
 ```
-`245947a8c768` is a result id from docker build: `Successfully built 245947a8c768`
-
 Example
 ```log
-$ docker run 245947a8c768
+$ docker run damn_docker
 Tap CTRL-C to Damn exit
 Damn! It's already 11:14:32 of 2020-02-13!
 Damn! It's already 11:14:35 of 2020-02-13!
