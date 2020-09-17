@@ -24,3 +24,10 @@ jobs:
         # The login password for the registry
         password: ${{secrets.DOCKER_AUTH_TOKEN}}
         tags: "latest, ${{ steps.get_version.outputs.VERSION }}"
+    - name: Slack Notify with Artifacts
+      uses: midhub/slack-notice-action@v3
+      with:
+        status: ${{ job.status }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
